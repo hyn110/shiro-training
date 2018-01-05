@@ -73,8 +73,8 @@ public class RetryLimitCredentialsMatcher extends HashedCredentialsMatcher imple
     @Override
     public void afterPropertiesSet() throws Exception {
         /**
-         * 原开源项目中在这里设置密码加密的算法和hash次数
-         * 这里先不做了
+         * 初始化缓存器
          */
+        this.passwordRetryCache = cacheManager.getCache(retryLimitCacheName);
     }
 }

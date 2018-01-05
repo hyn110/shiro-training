@@ -13,7 +13,7 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
+    <context:component-scan base-package="com.fmi110.controller"/>
     <mvc:annotation-driven/>
     <!--开启静态资源处理-->
     <mvc:default-servlet-handler/>
@@ -41,10 +41,12 @@
 
     <!--启动 shiro 控制器注解拦截方式-->
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManger"/>
+        <property name="securityManager" ref="securityManager"/>
     </bean>
+
     <!--shiro 生命周期处理器-->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
     <!-- aop 方法级别权限的检查  这个可以不要的吧???-->
     <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">-->
         <!--<property name="proxyTargetClass" value="true"/>-->

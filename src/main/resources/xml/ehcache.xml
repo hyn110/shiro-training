@@ -29,6 +29,16 @@
            statistics="true">
     </cache>
 
+    <!-- 缓存1分钟 -->
+    <cache name="oneMinute"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="100000"
+           eternal="false"
+           timeToIdleSeconds="60"
+           timeToLiveSeconds="60"
+           overflowToDisk="false"
+           diskPersistent="false" />
+
     <!-- 缓存半小时 -->
     <cache name="halfHour"
            maxElementsInMemory="10000"
