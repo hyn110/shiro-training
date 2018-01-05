@@ -1,7 +1,7 @@
 package com.fmi110.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wangzhixuan.commons.utils.JsonUtils;
+import com.fmi110.commons.utils.JsonUtils;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;

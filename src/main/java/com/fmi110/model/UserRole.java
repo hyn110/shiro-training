@@ -1,6 +1,6 @@
 package com.fmi110.model;
 
-import com.wangzhixuan.commons.utils.JsonUtils;
+import com.fmi110.commons.utils.JsonUtils;
 
 import java.io.Serializable;
 

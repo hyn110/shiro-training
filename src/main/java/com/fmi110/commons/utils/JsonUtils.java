@@ -2,7 +2,7 @@ package com.fmi110.commons.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wangzhixuan.commons.scan.JacksonObjectMapper;
+import com.fmi110.commons.scan.JacksonObjectMapper;
 
 import java.io.IOException;
 
