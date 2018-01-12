@@ -15,14 +15,24 @@ import java.util.Map;
  */
 public interface RoleMapper extends BaseMapper<Role> {
     /**
-     * 获取角色能访问的资源
+     * 根据角色 id 获取所有的资源id
      * @param id
      * @return
      */
     List<Long> selectResourceIdListByRoleId(@Param("id") Long id);
 
+    /**
+     * 查询给定的角色集合所有的权限
+     * @param list
+     * @return
+     */
     List<Resource> selectResourceListByRoleIdList(@Param("list") List<Long> list);
 
+    /**
+     * 查询指定角色具有的权限
+     * @param id
+     * @return
+     */
     List<Map<Long, String>> selectResourceListByRoleId(@Param("id") Long id);
 
 }

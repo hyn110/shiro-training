@@ -8,9 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- *
- * 组织机构
- *
+ * 部门机构 ---> 公司部门 : 行政部 , 财务部 , 技术部 等...
  */
 public class Organization implements Serializable {
 

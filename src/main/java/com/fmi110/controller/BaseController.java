@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class BaseController {
     /**
      * 日志
@@ -22,6 +25,19 @@ public abstract class BaseController {
      * @return
      */
     public Object renderSuccess() {
-        return "success";
+        return getResultMap(true,"请求成功");
+    }
+
+    /**
+     * 请求结果,数据封装在map中
+     * @param status
+     * @param data
+     * @return
+     */
+    public Map<String,Object> getResultMap(Object status,Object data){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("status",status);
+        map.put("data", data);
+        return map;
     }
 }

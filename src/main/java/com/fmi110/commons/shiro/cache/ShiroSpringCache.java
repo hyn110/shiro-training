@@ -11,14 +11,14 @@ import java.util.Set;
 
 /**
  * 缓存
- * 使用 spring-cache 作为缓存
+ * 内部使用 spring-cache 作为缓存
  * @param <K>
  * @param <V>
  */
 public class ShiroSpringCache<K, V> implements org.apache.shiro.cache.Cache<K, V> {
 
     private static final Logger logger = LogManager.getLogger(ShiroSpringCache.class);
-
+    /**使用 spring提供的缓存接口 Cache 实现,方便与 spring 整合!!!*/
     private final org.springframework.cache.Cache cache;
 
     public ShiroSpringCache(Cache cache) {

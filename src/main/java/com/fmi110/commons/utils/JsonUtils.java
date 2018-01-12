@@ -41,6 +41,10 @@ public final class JsonUtils {
         }
     }
 
+    /**
+     * 内部类实现单例
+     * @return
+     */
     private static ObjectMapper getInstance() {
         return JacksonHolder.INSTANCE;
     }

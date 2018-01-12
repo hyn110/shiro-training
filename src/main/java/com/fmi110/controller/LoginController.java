@@ -8,6 +8,8 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -64,5 +66,33 @@ public class LoginController extends BaseController{
         }
     }
 
+    /**
+     * 重定向到 /index 请求
+     * @return
+     */
+    @GetMapping("/")
+    public String index(){
+        return "redirect:/index";
+    }
 
+    /**
+     * 返回 index.jsp 页面
+     * @param model
+     * @return
+     */
+    @GetMapping("/index")
+    public String index(Model model){
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        logger.info("GET 登录请求");
+        // 用户在当前会话中已认证
+        if (SecurityUtils.getSubject()
+                         .isAuthenticated()) {
+            return "redirect:/index";
+        }
+        return "/login";
+    }
 }

@@ -224,6 +224,7 @@
                     <path>/</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <server>tomcat7</server>
+                    <port>8081</port>
                 </configuration>
             </plugin>
         </plugins>

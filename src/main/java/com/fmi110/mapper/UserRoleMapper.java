@@ -13,7 +13,11 @@ import java.util.List;
  * UserRole 表数据库控制层接口
  */
 public interface UserRoleMapper extends BaseMapper<UserRole> {
-
+    /**
+     * 查询指定用户的信息,并返回
+     * @param userId
+     * @return
+     */
     List<UserRole> selectByUserId(@Param("userId") Long userId);
 
     @Select("select role_id AS roleId from user_role where user_id = #{userId}")

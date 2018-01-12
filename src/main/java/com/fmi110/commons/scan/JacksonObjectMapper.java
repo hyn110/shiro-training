@@ -8,13 +8,11 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * 解决Jackson 差8小时的问题
- * @author L.cm
+ * 定制 Jackson 序列化 Date 类型的格式,以及时区问题
+ * 不指定中国时区,时间会相差8个小时
  */
 @Component("jacksonObjectMapper")
 public class JacksonObjectMapper extends ObjectMapper {
-
-    private static final long serialVersionUID = 4288193147502386170L;
 
     private static final Locale CHINA = Locale.CHINA;
     

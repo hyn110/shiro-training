@@ -10,7 +10,9 @@ import org.apache.shiro.util.Destroyable;
  * 使用 spring-cache 作为shiro缓存
  */
 public class ShiroSpringCacheManager implements CacheManager,Destroyable{
-
+    /**
+     * 使用 spring 提供的 CacheManager ,方便整合
+     */
     private org.springframework.cache.CacheManager cacheManager;
 
     public void setCacheManager(org.springframework.cache.CacheManager cacheManager) {

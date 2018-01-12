@@ -12,7 +12,7 @@ public interface IRoleService extends IService<Role> {
 
     Object selectTree();
 
-    List<Long> selectResourceIdListByRoleId(Long id);
+    List<Long> selectResourceIdListByRoleId(Long roleId);
 
     void updateRoleResource(Long roleId, String resourceIds);
 

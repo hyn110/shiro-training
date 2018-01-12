@@ -11,13 +11,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd"
        default-autowire="byName">
 
-    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-    <!--<property name="locations">-->
-    <!--<list>-->
-    <!--<value>classpath:config/*.properties</value>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
+
     <context:property-placeholder location="classpath*:config/*.properties" />
 
     <!-- aspectj aop启用CGliB代理 -->
@@ -28,9 +22,10 @@
     <import resource="classpath:spring/spring-mybatis.xml"/>
     <import resource="classpath:spring/spring-ehcache.xml"/>
 
+    <!--引入redis缓存配置-->
     <!--<import resource="classpath:spring/spring-redis.xml"/>-->
 
     <!-- Spring 异步event需要开启task -->
     <import resource="classpath:spring/spring-task.xml"/>
-    <import resource="classpath:spring/spring-shiro.xml"/>
+    <!--<import resource="classpath:spring/spring-shiro.xml"/>-->
 </beans>

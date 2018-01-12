@@ -30,7 +30,7 @@
         <logger name="com.wangzhixuan.commons.shiro.cache" level="INFO"/>
         
         <!-- 业务debug日志 -->
-        <logger name="com.fmi110" level="DEBUG"/>
+        <logger name="com.fmi110" level="trace"/>
         
         <Root level="debug">
             <AppenderRef ref="Console" />

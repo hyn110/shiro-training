@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by L.cm
  * Date: 2015-12-14 15:17
+ * 实现 ApplicationContextAware 接口,可以让我们获取到容器上下文 applicationContext
  */
 @Component
 public class SpringUtils implements ApplicationContextAware {
