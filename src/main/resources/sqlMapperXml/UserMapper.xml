@@ -69,7 +69,7 @@
                 t.name = #{name}
             </if>
             <if test=" organizationId != null ">
-                t.organization_id = #{organizationId}
+                and t.organization_id = #{organizationId}
             </if>
             <if test=" startTime != null ">
                 <![CDATA[ and t.create_time >= #{startTime} ]]>

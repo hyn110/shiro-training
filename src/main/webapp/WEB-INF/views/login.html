@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="static/easyui/themes/icon.css">
+    <script type="text/javascript" src="static/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="static/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="commons/jquery.serializejson.min.js"></script>
+    <script src="commons/download.js"></script>
+    <script src="commons/date.js"></script>
+
+</head>
+<body>
+<div class="easyui-dialog" title="登录" style="width:400px">
+    <div style="padding:10px 60px 20px 60px">
+        <form id="loginForm" method="post" >
+            <table cellpadding="5">
+                <tr>
+                    <td>用户名:</td>
+                    <td><input class="easyui-textbox" type="text" name="username" data-options="required:true"/></td>
+                </tr>
+                <tr>
+                    <td>密 码:</td>
+                    <td><input class="easyui-textbox" type="text" name="password" data-options="required:true"/></td>
+                </tr>
+                <tr>
+                    <td>记 住:</td>
+                    <td>
+                        <input  type="radio" name="rememberMe" value="1"/>是
+                        <input  type="radio" name="rememberMe" value="0" checked/>否
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="margin:15px;width: 80px;">登录</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="margin:15px;width: 80px;">取消</a>
+        </div>
+    </div>
+    <script>
+        function submitForm(){
+            $('#loginForm').form('submit',{
+                url: "/shiro/login",
+                success:function(data){
+                    data = JSON.parse(data);
+                    if(data.status=='200'){
+                        location.href="/shiro/index"
+                    }else {
+                        $.messager.show({
+                                            title:'提示信息',
+                                            msg:'用户名或密码错误',
+                                            timeout:3000,
+                                            showType:'show',
+                                            style:{
+                                                right:'',
+                                                top:document.body.scrollTop+document.documentElement.scrollTop,
+                                                bottom:''
+                                            }
+                                        });
+                    }
+                }
+            });
+        }
+        function clearForm(){
+            $('#loginForm').form('clear');
+        }
+    </script>
+</div>
+</body>
+</html>

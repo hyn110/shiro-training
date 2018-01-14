@@ -115,4 +115,9 @@
             <!--</map>-->
         <!--</property>-->
     </bean>
+
+    <bean id="passwordHash" class="com.fmi110.commons.shiro.PasswordHash">
+        <property name="hashIterations" value="1"/>
+        <property name="algorithmName" value="md5"/>
+    </bean>
 </beans>

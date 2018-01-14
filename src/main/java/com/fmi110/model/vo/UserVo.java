@@ -168,7 +168,7 @@ public class UserVo implements Serializable {
 	}
 
 	public String getRoleIds() {
-		return roleIds;
+		return roleIds==null?"":roleIds;
 	}
 
 	public void setRoleIds(String roleIds) {

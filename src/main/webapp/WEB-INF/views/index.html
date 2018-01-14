@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="static/easyui/themes/icon.css">
+    <script type="text/javascript" src="static/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="static/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="static/index.js"></script>
+    <script src="commons/jquery.serializejson.min.js"></script>
+    <script src="commons/download.js"></script>
+    <script src="commons/date.js"></script>
+</head>
+<body class="easyui-layout" fit="true" scroll="no" style="overflow-y: hidden">
+<noscript>
+    <div style=" position:absolute; z-index:100000; height:2046px;top:0px;left:0px; width:100%; background:white; text-align:center;">
+        <img alt="抱歉，请开启脚本支持！" src="images/noscript.gif"/>
+    </div>
+</noscript>
+
+<div border="false" region="north" split="true" style="overflow: hidden; height: 30px;
+        line-height: 20px; font-family: Verdana, 微软雅黑,黑体">
+            <span class="head" style="float:right; padding-right:20px;">
+                欢迎
+                <span id="username">
+                </span>
+                <a href="javascript:void(0)" id="editpass">
+                    修改密码
+                </a>
+                <a href="javascript:void(0)" id="loginOut">
+                    安全退出
+                </a>
+            </span>
+</div>
+<div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
+    <div class="footer">
+    </div>
+</div>
+<div id="west" region="west" split="true" style="width:180px;" title="导航菜单">
+    <div id="nav">
+        <!--  导航内容 -->
+    </div>
+</div>
+<div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
+    <div border="false" class="easyui-tabs" fit="true" id="tabs">
+        <div style="padding:20px;overflow:hidden; color:red; " title="欢迎使用">
+            <h1 style="font-size:24px;">
+            </h1>
+            <h1 style="font-size:24px;">
+            </h1>
+            <h1 style="font-size:24px;">
+            </h1>
+            <h1 style="font-size:24px;">
+            </h1>
+        </div>
+    </div>
+</div>
+<!--修改密码窗口-->
+<div id="w">
+    <div class="easyui-layout" fit="true">
+        <div border="false" region="center" style="padding: 10px; background: #fff;">
+            <table cellpadding="3">
+                <tr>
+                    <td>
+                        旧密码：
+                    </td>
+                    <td>
+                        <input class="txt01" id="txtOldPass" type="password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        新密码：
+                    </td>
+                    <td>
+                        <input class="txt01" id="txtNewPass" type="password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        确认密码：
+                    </td>
+                    <td>
+                        <input class="txt01" id="txtRePass" type="password"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="easyui-menu" id="mm" style="width:150px;">
+    <div id="tabupdate">
+        刷新
+    </div>
+    <div class="menu-sep">
+    </div>
+    <div id="close">
+        关闭
+    </div>
+    <div id="closeall">
+        全部关闭
+    </div>
+    <div id="closeother">
+        除此之外全部关闭
+    </div>
+    <div class="menu-sep">
+    </div>
+    <div id="closeright">
+        当前页右侧全部关闭
+    </div>
+    <div id="closeleft">
+        当前页左侧全部关闭
+    </div>
+    <div class="menu-sep">
+    </div>
+    <div id="exit">
+        退出
+    </div>
+</div>
+</body>
+</html>

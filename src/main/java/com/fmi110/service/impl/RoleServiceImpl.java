@@ -1,7 +1,10 @@
 package com.fmi110.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.fmi110.commons.result.PageBean;
+import com.fmi110.commons.result.Tree;
 import com.fmi110.mapper.RoleMapper;
 import com.fmi110.mapper.RoleResourceMapper;
 import com.fmi110.mapper.UserRoleMapper;
@@ -36,7 +39,26 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper,Role> implements IRo
 
     @Override
     public Object selectTree() {
-        return null;
+
+        List<Tree> trees = new ArrayList<>();
+        List<Role> roles = this.selectAll();
+        for (Role role : roles) {
+            Tree tree = new Tree();
+            tree.setId(role.getId());
+            tree.setText(role.getName());
+            trees.add(tree);
+        }
+        return trees;
+    }
+
+    /**
+     * 查询所有的角色,按 "seq" 排序
+     * @return
+     */
+    public List<Role> selectAll() {
+        EntityWrapper<Role> wrapper = new EntityWrapper<>();
+        wrapper.orderBy("seq");
+        return this.selectList(wrapper);
     }
 
     /**
@@ -116,5 +138,23 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper,Role> implements IRo
         resourceMap.put("roles", roles);
 
         return resourceMap;
+    }
+
+    /**
+     * 分页查询角色
+     *
+     * @param pageBean
+     */
+    @Override
+    public PageBean selectDataGrid(PageBean pageBean) {
+        Page<Role> page = new Page<>(pageBean.getNowpage(), pageBean.getSize());
+        EntityWrapper<Role> wrapper = new EntityWrapper<>();
+        wrapper.orderBy(pageBean.getSort(), pageBean.getOrder()
+                                                    .equalsIgnoreCase("ASC"));
+
+        super.selectPage(page);
+        pageBean.setRows(page.getRecords());
+        pageBean.setTotal(page.getTotal());
+        return pageBean;
     }
 }
